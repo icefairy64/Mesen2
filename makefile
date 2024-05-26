@@ -47,7 +47,9 @@ endif
 ifneq ($(filter %86,$(MACHINE)),)
 	MESENPLATFORM := $(MESENOS)-x64
 endif
-# TODO: this returns `aarch64` on one of my machines...
+ifeq ($(MACHINE),aarch64)
+	MESENPLATFORM := $(MESENOS)-arm64
+endif
 ifneq ($(filter arm%,$(MACHINE)),)
 	MESENPLATFORM := $(MESENOS)-arm64
 endif
